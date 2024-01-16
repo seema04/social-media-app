@@ -1,0 +1,287 @@
+@import "./style.css";
+@import "./middle.css";
+@import "./theme.css";
+
+/************** leftside************/
+.profile-photo img{
+  width: 3rem;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* *************** Main ***************** */
+/************ left********** */
+
+main{
+  position: relative;
+  top: 5.4rem;
+}
+
+main .container{
+  display: grid;
+  grid-template-columns:  18vw 1fr 25vw;
+  column-gap: 2rem;
+  position: relative;
+}
+
+main .container .left{
+  height: max-content;
+  position: sticky;
+  top: var(--sticky-top-left);
+}
+
+main .container .left .profile{
+  padding: var(--card-padding);
+  background: var(--clr-white);
+  border-radius: var(--card-border-radius);
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+  width: 100%;
+  font-size: .8rem;
+  color: aliceblue;
+}
+
+.left .sidebar{
+  margin-top: 1rem;
+  background: var(--clr-white);
+  border-radius: var(--card-border-radius);
+}
+.sidebar .menu-item{
+ display: flex;
+ align-items: center;
+ height: 4rem;
+ cursor: pointer;
+ transition: all 500ms ease;
+ position: relative;
+}
+
+.sidebar .menu-item:hover{
+  margin-top: .7rem;
+  /* transform: translateX(8px); */
+  background: var(--text-clr);
+  border-radius: .25rem;
+  color: var(--clr-primary);
+}
+
+.sidebar .menu-item:hover h3,
+.sidebar .menu-item:hover i{
+  color: var(--clr-primary);
+}
+
+.left .sidebar i{
+  font-size: 1.4rem;
+  color: var(--clr-gray);
+  margin-left: 2rem;
+  position: relative;
+}
+
+.sidebar i .notification-count{
+  background: var(--clr-danger);
+  color: whitesmoke;
+  width: fit-content;
+  border-radius: .8rem;
+  padding: .01rem .25rem;
+  position: absolute;
+  top: -.2rem;
+  right: -.2rem;
+  font-size: .8rem;
+}
+
+.left .sidebar h3{
+  margin-left: 1.5rem;
+  font-size: .9rem;
+  font-weight: 500;
+  color: var(--clr-gray);
+}
+
+.left .sidebar .active{
+  background: var(--text-clr);
+  color: var(--clr-white);
+}
+
+.left .sidebar .active i, 
+.left .sidebar .active h3{
+  color: var(--clr-primary);
+}
+
+.left .sidebar .active::before{
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  width: .5rem;
+  background: var(--clr-primary);
+}
+
+.left .sidebar .menu-item:first-child.active{
+ border-bottom-left-radius: 1rem;
+ overflow: hidden;
+}
+
+.left .btn{
+ margin-top: 2rem;
+ width: 80%;
+ text-align: center;
+ padding: .5rem 0;
+}
+
+/********* notification popup ************/
+
+.notification-popup{
+ position: absolute;
+ top: 0;
+ left: 110%;
+ width: 30rem;
+ background-color: var(--clr-white);
+ border-radius: var(--card-border-radius);
+ padding: var(--card-padding);
+ box-shadow: 0 0 2rem hsl(var(--clr-primary),75%,60%,25%);
+ z-index: 8;
+ display: none;
+}
+
+.left .notification-popup::before{
+  content: '';
+  position: absolute;
+  width: 1.2rem;
+  height: 1.2rem;
+  transform: rotate(45deg);
+  display: block;
+  /* background-color: red; */
+  left: -.6rem;
+}
+
+.left .notification-popup > div{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-size: .7rem;
+
+}
+
+.left .notification-popup small{
+  display: block;
+}
+
+/* ============== Right side ================== */
+
+main .container .right{
+  height: max-content;
+  position: sticky;
+  top: -18rem;
+  right: 0;
+  bottom: 0;
+  color: var(--txt-clr);
+}
+
+.right .messages{
+  background: var(--clr-white);
+  border-radius: var(--card-border-radius);
+  padding: var(--card-padding);
+}
+
+.right .messages .heading{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.right .messages i{
+  font-size: 1.4rem;
+  color: var(--txt-clr);
+}
+
+.right .messages .search-bar{
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.right .messages .category{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.messages .category h6{
+ width: 100%;
+ text-align: center;
+ border-bottom: 4px solid var(--clr-light);
+ padding-bottom: 0.5rem;
+ font-size: .85rem;
+ color: var(--text-clr);
+}
+
+.right .messages .cateogry .active{
+  border-color: var(--clr-dark);
+}
+
+.right .messages .message{
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  align-items: start;
+}
+.messages .profile-photo{
+  position: relative;
+  overflow: visible;
+}
+
+.right .profile-photo img{
+  border-radius: 50%;
+}
+.right .messages .message:last-child{
+  margin: 0;
+}
+
+.right .messages .message p{
+  font-size: .6rem;
+}
+
+.message .profile-photo .active{
+ width: .8rem;
+ height: .8rem;
+ border-radius: 50%;
+ border: 3px solid var(--clr-white);
+ background: var(--clr--success);
+ position: absolute;
+ bottom: 0;
+ right: 0;
+}
+
+.right .message-rqst{
+ color: var(--clr-primary);
+}
+
+/* friend request */
+.right .friend-rqst{
+  margin-top: 1rem;
+}
+
+.right .friend-rqst h4{
+  color: var(--text-clr);
+  margin: 1rem;
+}
+
+.right .rqst{
+  background: var(--clr-white);
+  pad: var(--card-padding);
+  border-radius: var(--card-border-radius);
+  margin: .8rem;
+}
+
+.right .rqst .info{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.right .rqst .action{
+  display: flex;
+  gap: .5rem;
+  margin-top: 1rem;
+}
